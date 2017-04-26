@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: block;
+    height: 200px;
+    border: red 3px;
+    background: #000;
+    align-content: center;
+}
+
+.tel {
+    position: fixed;
+    display: block;
+    margin-left: 10%;
+    margin-top: 10px;
+    border: 3px black;
+    color: #fff2d0;
+    font-size: 1em;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.logo {
+    position: fixed;
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    color: #fff2d0;
+    font-size: 2.7em;
+    text-align: center;
+}
+
+.login {
+    position: fixed;
+    display: block;
+/*    float: right;*/
+    margin-left: 80%;
+    margin-top: 15px;
+    color: #fff2d0;
+    font-size: 1em;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.vxod input {
+    border: #fff2d0;
+    border-radius: 5px;
+    height: 20px;
+    margin-bottom: 5px;
+    background-color: #fff2d0;
+    padding-left: 5px;
+}
+
+.menu {
+    position: fixed;
+/*    display: block;*/
+    margin-left: 10%;
+    margin-top: 150px;
+}
+
+.menu li{
+    text-decoration: none;
+    float: left;
+    margin-left: 20px;
+    margin-top: 15px;
+    color: #fff2d0;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    list-style-type: none;
+}
+
+.menu a{
+    text-decoration: none;
+    margin-top: 15px;
+    color: #fff2d0;
+    list-style-type: none;
+    font-size: 1.1em;
+}
