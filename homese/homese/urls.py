@@ -15,7 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from mainapp.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', main),
+    url(r'^main/$', main, name='main'),
+]
+
+urlpatterns += [
+    url(r'^user/login/', login),
+    url(r'^user/logout/', logout),
 ]
