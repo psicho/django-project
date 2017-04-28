@@ -23,6 +23,11 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', main),
     url(r'^main/$', main, name='main'),
+    url(r'^catalog/$', catalog, name='catalog'),
+    url(r'^product/$', product, name='product'),
+    url(r'^delivery/$', delivery, name='delivery'),
+    url(r'^contacts/$', contacts, name='contacts'),
+    url(r'^pay/$', pay, name='pay'),
 ]
 
 urlpatterns += [

@@ -6,6 +6,21 @@ from django.http import Http404
 def main(request):
     return render(request, "index.html")
 
+def catalog(request):
+    return render(request, "catalog.html")
+
+def product(request):
+    return render(request, "product.html")
+
+def contacts(request):
+    return render(request, "contacts.html")
+
+def delivery(request):
+    return render(request, "delivery.html")
+
+def pay(request):
+    return render(request, "pay.html")
+
 def login(request):
     if request.method == 'POST':
         username = request.POST['login']
