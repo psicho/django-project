@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block text %}
+    <form method="post" role="form" action="/user/registration/">
+        {% csrf_token %}
+        <table>
+            {% for field in form %}
+                <tr>
+                    <td>
+                        {{ field.label_tag }}
+                    </td>
+                    <td>
+                        <div>
+                        <ul>
+                            {% for error in field.errors %}
+                                <li class="error">errors:{{ error }}</li>
+                            {% endfor %}
+                            {{ field }}
+                        </ul>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="Create the account">
+    </form>
+{% endblock %}
