@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Магазин украшений Rings</title>
+    <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+    <header>
+        <div class='tel'>
+            8 800 200
+        </div>
+        <div class="logo">
+            <a href="/">Магазин Украшений <br> Rings</a>
+        </div>
+        <div class="login">
+            {% include 'login.html' %}
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="/catalog">Украшения</a></li>
+                <li><a href="/">Короны</a></li>
+                <li><a href="/pay">Оплата</a></li>
+                <li><a href="/delivery">Доставка</a></li>
+                <li><a href="/contacts">Контакты</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="gallery">
+        {% block text %}
+        {% endblock %}
+    </div>
+
+    <footer>
+
+    </footer>
+</body>
+</html>

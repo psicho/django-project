@@ -8,8 +8,9 @@
        <input type="password" name="password" size="20" placeholder="Пароль"><br>
        <button type="submit" class="btn btn-default">Войти</button>
     </form>
-    <a href="/user/registration">Регистрация</a>
     {% if errors %}
-        <p class="text-dangers">Вы ввели неправильные данные</p>
+        <p class="error">Вы ввели неправильные данные</p>
     {% endif %}
+    <a href="/user/registration">Регистрация</a>
+
 {% endif %}

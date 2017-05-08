@@ -87,6 +87,34 @@ footer {
     padding-left: 5px;
 }
 
+.formreg {
+    display: block;
+    background: #905b20;
+    width: 400px;
+    margin: 20px;
+    margin-left: 30px;
+    color: #fff2d0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.registr input {
+    margin: 10px;
+    margin-left: 30px;
+    border: #fff2d0;
+    border-radius: 5px;
+    height: 20px;
+    margin-bottom: 5px;
+    background-color: #fff2d0;
+    padding-left: 5px;
+}
+
+.registr .submiter {
+    padding: 0px;
+    width: 150px;
+    color: #905b20;
+}
+
 .menu {
     display: inline-block;
     margin-left: 9%;
@@ -109,4 +137,29 @@ footer {
     color: #fff2d0;
     list-style-type: none;
     font-size: 1.1em;
+}
+
+.admintab {
+    text-decoration: none;
+    margin-left: 20px;
+    margin-top: 15px;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    display: block;
+    background: #905b20;
+    width: 600px;
+    margin: 20px;
+    margin-left: 30px;
+    color: #fff2d0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.admintab li {
+    text-align: left;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.error {
+    color = red;
 }

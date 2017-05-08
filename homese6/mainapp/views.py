@@ -1,7 +1,9 @@
 from django.contrib import auth
-from django.shortcuts import render, render_to_response, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
 from django.http import Http404
 from mainapp.forms import MyRegistrationForm
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import user_passes_test
 # from mainapp.models import Teach, Work, Hobby
 
 def main(request):
@@ -80,3 +82,15 @@ def registration(request):
         return render(request, 'registration.html', context)
     context = {'form': MyRegistrationForm()}
     return render(request, 'registration.html', context)
+
+@user_passes_test(lambda u: u.is_superuser)  # доступ у админке только суперпользователю
+def admin_page(request):
+    # TODO: сделать доступ у админке только суперпользователю
+    users = User.objects.all()
+    user_form = MyRegistrationForm()
+    return render(request, 'admin_page.html', {'users': users})
+
+def delete_user(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    user.delete()
+    return HttpResponseRedirect('/admin007/')

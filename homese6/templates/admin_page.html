@@ -1,0 +1,22 @@
+{% extends "base_admin.html" %}
+{% block text %}
+<div class="admintab">
+    <div class="row">
+        <div class="col-md-6">
+            Пользователи: <br><br>
+            <ul id="users">
+                {% for user in users %}
+                    <li>{{ user.id }} {{ user }}  {{user.first_name}}  {{user.last_name}}  {{user.status}}
+                        <button type="button" class="btn btn-default" aria-label="Edit"> Редактировать
+                 <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
+                        </button>
+                        <a href="delete/user/{{ user.id }}" class="btn btn-default"> Удалить
+                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

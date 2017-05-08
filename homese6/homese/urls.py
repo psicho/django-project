@@ -34,4 +34,8 @@ urlpatterns += [
     url(r'^user/login/', login),
     url(r'^user/logout/', logout),
     url(r'^user/registration/$', registration, name='registration'),
+
+    # url(r'^admin/$', admin_page, name='admin_page'),
+    url(r'^admin007/$', admin_page, name='admin_page'),
+    url(r'^admin007/delete/user/(\d+)$', delete_user),
 ]
