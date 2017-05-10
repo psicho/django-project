@@ -1,22 +1,21 @@
 {% extends "base_admin.html" %}
+{% block js %}
+    {{ block.super }}
+    <script src="/static/js/create_user.js"></script>
+{% endblock %}
 {% block text %}
-<div class="admintab">
-    <div class="row">
-        <div class="col-md-6">
-            Пользователи: <br><br>
-            <ul id="users">
-                {% for user in users %}
-                    <li>{{ user.id }} {{ user }}  {{user.first_name}}  {{user.last_name}}  {{user.status}}
-                        <button type="button" class="btn btn-default" aria-label="Edit"> Редактировать
-                 <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
-                        </button>
-                        <a href="delete/user/{{ user.id }}" class="btn btn-default"> Удалить
-                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
+    <div class="admintab">
+        <div class="row">
+            <div class="col-md-6">
+                Пользователи: <br><br>
+                <ul id="users">
+                    {% include 'inc-users_list.html' %}
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+    <form id="user_form" onclick="send_data({{ id }})">
+        {% include 'inc-registration_form.html' %}
+    </form>
+    <input type="submit" value="Edit account" onclick="send_data()">
 {% endblock %}

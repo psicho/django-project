@@ -115,6 +115,24 @@ footer {
     color: #905b20;
 }
 
+.submiter {
+    color: #905b20;
+    margin-left: 5px;
+    margin-left: 30px;
+    border: #fff2d0;
+    border-radius: 5px;
+    height: 20px;
+    margin-bottom: 5px;
+    background-color: #fff2d0;
+    padding-left: 5px;
+    padding: 0px;
+
+}
+
+.submiter a {
+    text-decoration: none;
+}
+
 .menu {
     display: inline-block;
     margin-left: 9%;

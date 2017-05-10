@@ -1,6 +1,9 @@
 {% if user.is_authenticated %}
     Привет, {{ user.username}}! |
-    <a class="outlink" href="/user/logout/">Выйти</a>
+    <a class="outlink" href="/user/logout/">Выйти</a><br>
+    {% if user.is_superuser %}
+        <a href="/admin007/">Админка</a>
+    {% endif %}
 {% else %}
     <form method="post" class="vxod" action="/user/login/">
         {% csrf_token %}
