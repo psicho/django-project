@@ -1,9 +1,11 @@
 from django.contrib import auth
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from mainapp.forms import MyRegistrationForm, MyCorrectionForm, UserChangeForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import user_passes_test
+from django.template.context_processors import csrf
+from django.template import loader
 # from mainapp.models import Teach, Work, Hobby
 
 def main(request):
@@ -126,10 +128,10 @@ def get_user_form(request, user_id):
     """
     if request.is_ajax():
         user = get_object_or_404(User, id=user_id)
-        user_form = MyRegistrationForm(instance=user)
+        user_form = MyCorrectionForm(instance=user)
         context = {'form': user_form, 'id': user_id}
         context.update(csrf(request))
-        html = loader.render_to_string('inc-registration_form.html', context)
+        html = loader.render_to_string('inc-correction_form.html', context)
         data = {'errors': False, 'html': html}
         return JsonResponse(data)
     raise Http404

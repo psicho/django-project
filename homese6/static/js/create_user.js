@@ -69,7 +69,7 @@ function send_data() {
                 // $('#myModal').modal('hide');
                 update_page(response.html);
                 console.log("Object create");
-                clear_form()
+                clear_form();
             }
         },
         error: function (xhr, status, error) {
