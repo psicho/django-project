@@ -1,24 +1,23 @@
 <div class="registr">
-    <form method="post" role="form" action="/user/registration/">
-            {% csrf_token %}
-            <table >
-                {% for field in form %}
-                    <tr>
-                        <td>
-                            {{ field.label_tag }}
-                        </td>
-                        <td>
-                            <div>
-                            <ul>
-                                {% for error in field.errors %}
-                                    <li class="error">errors:{{ error }}</li>
-                                {% endfor %}
-                                {{ field }}
-                            </ul>
-                            </div>
-                        </td>
-                    </tr>
-                {% endfor %}
-            </table>
-            <input class="submiter" type="submit" value="Регистрация">
-    </form>
+    {% csrf_token %}
+    <table>
+        <span class="hidden" id="user_id">{{ id }}</span>
+        {% for field in form %}
+            <tr>
+                <td>
+                    {{ field.label_tag }}
+                </td>
+                <td>
+                    <div>
+                        <ul>
+                            {% for error in field.errors %}
+                                <li class="error">errors:{{ error }}</li>
+                            {% endfor %}
+                            {{ field }}
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>

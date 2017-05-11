@@ -98,6 +98,17 @@ footer {
     padding: 10px;
 }
 
+.formregfull {
+    display: block;
+    background: #905b20;
+    width: 600px;
+    margin: 20px;
+    margin-left: 30px;
+    color: #fff2d0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
 .registr input {
     margin: 10px;
     margin-left: 30px;
@@ -173,6 +184,12 @@ footer {
 }
 
 .admintab li {
+    text-align: left;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.admintab a {
     text-align: left;
     text-decoration: none;
     list-style-type: none;

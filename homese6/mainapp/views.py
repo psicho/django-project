@@ -1,7 +1,7 @@
 from django.contrib import auth
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
 from django.http import Http404
-from mainapp.forms import MyRegistrationForm
+from mainapp.forms import MyRegistrationForm, MyCorrectionForm, UserChangeForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import user_passes_test
 # from mainapp.models import Teach, Work, Hobby
@@ -85,10 +85,11 @@ def registration(request):
 
 @user_passes_test(lambda u: u.is_superuser)  # доступ у админке только суперпользователю
 def admin_page(request):
-    # TODO: сделать доступ у админке только суперпользователю
+    # TODO: сделать доступ к админке только суперпользователю
     users = User.objects.all()
-    user_form = MyRegistrationForm()
-    return render(request, 'admin_page.html', {'users': users})
+    #user_form = MyRegistrationForm()
+    user_form = MyCorrectionForm()
+    return render(request, 'admin_page.html', {'users': users, 'form': user_form})
 
 def delete_user(request, user_id):
     user = get_object_or_404(User, id=user_id)
@@ -101,21 +102,24 @@ def create_user(request, user_id=None):
     Или редактирует существующего, если указан  user_id
     """
     if request.is_ajax():
+        print('user_id = ', user_id)
         if not user_id:
-            user = User(request.POST)
+            print('Not user_id')
+            user = UserChangeForm(request.POST)
         else:
             user = get_object_or_404(User, id=user_id)
-            user = MyRegistrationForm(request.POST or None, instance=user)
+            user = UserChangeForm(request.POST or None, instance=user)
         if user.is_valid():
             user.save()
             users = User.objects.all()
-            html = loader.render_to_string('users_list.html', {'users': users}, request=request)
+            html = loader.render_to_string('inc-users_list.html', {'users': users}, request=request)
             data = {'errors': False, 'html': html}
             return JsonResponse(data)
         else:
             errors = user.errors.as_json()
             return JsonResponse({'errors': errors})
     raise Http404
+
 def get_user_form(request, user_id):
     """
     Возвращает заполненную форму для редактирования Пользователя(User) с заданным user_id

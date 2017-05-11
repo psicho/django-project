@@ -5,8 +5,8 @@
 {% endblock %}
 {% block text %}
     <div class="admintab">
-        <div class="row">
-            <div class="col-md-6">
+        <div>
+            <div >
                 Пользователи: <br><br>
                 <ul id="users">
                     {% include 'inc-users_list.html' %}
@@ -14,8 +14,10 @@
             </div>
         </div>
     </div>
-    <form id="user_form" onclick="send_data({{ id }})">
-        {% include 'inc-registration_form.html' %}
-    </form>
-    <input type="submit" value="Edit account" onclick="send_data()">
+    <div class="formregfull">
+        <form id="user_form">
+            {% include 'inc-correction_form.html' %}
+        </form><br>
+        <input type="submit" value="Редактировать" onclick="send_data()">
+    </div>
 {% endblock %}
