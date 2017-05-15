@@ -1,11 +1,12 @@
 from django.contrib import auth
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
 from django.http import Http404, JsonResponse
-from mainapp.forms import MyRegistrationForm, MyCorrectionForm, UserChangeForm
+from mainapp.forms import MyRegistrationForm, MyCorrectionForm, UserChangeForm, JewelForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import user_passes_test
 from django.template.context_processors import csrf
 from django.template import loader
+from mainapp.models import Jewel, Category
 # from mainapp.models import Teach, Work, Hobby
 
 def main(request):
@@ -135,3 +136,44 @@ def get_user_form(request, user_id):
         data = {'errors': False, 'html': html}
         return JsonResponse(data)
     raise Http404
+
+def jewel(request, category_id):
+    jewel = Jewel.objects.filter(category__id=category_id)
+    categories = Category.objects.all()
+    return render(request, 'catalog.html', {'categories': categories, 'jewel': jewel})
+
+def admin_jewels(request):
+    gems = Jewel.objects.all()
+    return render(request, 'admin_jewels.html', {'jewel': jewel})
+
+def admin_jewels_create(request):
+    if request.method == 'POST':
+        form = JewelForm(request.POST, files=request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/admin007/jewels/')
+        else:
+            return render(request, 'admin_jewels_create.html', {'form': form})
+    return render(request, 'admin_jewels_create.html', {'form': JewelForm()})
+
+def admin_jewels_delete(request, id):
+    jewel = get_object_or_404(Jewel, id=id)
+    jewel.delete()
+    return HttpResponseRedirect('/admin007/jewels/')
+
+def admin_jewels_update(request, id):
+    jewel = get_object_or_404(Jewel, id=id)
+    if request.method == 'POST':
+        # form = GemsForm(request.POST or None, instance=gem)
+        form = JewelForm(request.POST, instance=jewel)
+    if form.is_valid():
+        jewel.save()
+        return HttpResponseRedirect('/admin007/jewels/')
+    else:
+        context = {'form': form}
+        return render(request, 'admin_jewels_update.html', context)
+    context = {'form': JewelForm(instance=jewel)}
+    return render(request, 'admin_jewels_update.html', context)
+def admin_jewels_detail(request, id):
+    jewel = get_object_or_404(Jewel, id=id)
+    return render(request, 'admin_jewels_detail.html', {'jewel':jewel})

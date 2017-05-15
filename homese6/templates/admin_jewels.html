@@ -1,0 +1,25 @@
+{% extends "base_admin.html" %}
+{% block text %}
+    <h1>Украшения</h1>
+    <table class="table">
+        <tr>
+            <th>Картинка</th>
+            <th>Название</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for jewel in jewels %}
+        <tr>
+            {% if jewel.image %}
+            <td><img style="height: 50px;" src="{{jewel.image.url}}" alt="jewel.name"></td>
+            {% else %}
+            <td></td>
+            {% endif %}
+            <td><a href="{% url 'jewels_detail' jewel.id %}">{{jewel.name}}</a></td>
+            <td><a class="btn btn-danger" href="{% url 'jewels_delete' gem.id %}">Удалить</a></td>
+            <td><a class="btn btn-warning" href="{% url 'jewels_update' gem.id %}">Редактировать</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a class="btn btn-primary" href="{% url 'jewels_create' %}">Добавить</a>
+{% endblock %}

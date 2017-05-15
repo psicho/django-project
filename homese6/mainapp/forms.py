@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from .models import Jewel
 
 class MyRegistrationForm(UserCreationForm):
     username = forms.CharField(label='Пользователь', required=True)
@@ -48,3 +49,8 @@ class UserChangeForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'first_name']
+
+class JewelForm(forms.ModelForm):
+    class Meta:
+        model = Jewel
+        fields = ('__all__')

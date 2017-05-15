@@ -40,3 +40,15 @@ urlpatterns += [
     url(r'^admin007/get_user_form/(\d+)$', get_user_form),
     url(r'^admin007/create/user/(\d*)$', create_user),
 ]
+
+urlpatterns += [
+    url(r'admin007/jewels/', admin_jewels, name='admin_jewels'),
+    url(r'^admin007/create/jewels/$', admin_jewels_create, name='jewels_create'),
+    url(r'^admin007/delete/jewels/(\d+)$', admin_jewels_delete, name='jewels_delete'),
+    url(r'^admin007/update/jewels/(\d+)$', admin_jewels_update, name='jewels_update'),
+    url(r'^admin007/detail/jewels/(\d+)$', admin_jewels_detail, name='jewels_detail')
+]
+
+urlpatterns += [
+    url(r'^jewels/(\d+)/$', jewel, name='jewel')
+]

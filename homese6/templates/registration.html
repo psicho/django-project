@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% block text %}
     <div class="formreg">
-        {%  include 'inc-registration_form.html' %}
+        <div class="registr">
+            <form method="post" role="form" action="/user/registration/">
+                {%  include 'inc-registration_form.html' %}
+                <input class="submiter" type="submit" value="Регистрация">
+            </form>
+        </div>
     </div>
 {% endblock %}
