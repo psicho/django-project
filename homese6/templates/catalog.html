@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block title %}
     Украшения
 {% endblock %}
@@ -11,9 +10,10 @@
             {{ jewel.name }}
         </div>
         <div class="image">
-            <img src="/media/img/{{ Jewel.image | default:"/static/bodyphoto1.jpg" }}">
+            <img src="/media/img/{{ jewel.image | default:"/static/bodyphoto1.jpg" }}">
         </div>
             {{ jewel.category.name }}
+            <img src="/static/bodyphoto8.jpg">
         </div>
     {% endfor %}
     </div>
