@@ -50,7 +50,9 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    url(r'^jewels/(\d+)/$', jewel, name='jewel')
+    url(r'^jewels/$', jeweler, name='jeweler'),
+    url(r'^jewels/(\d+)/$', jeweler, name='jeweler'),
+    url(r'^catalog/$', jeweler, name='jeweler'),
 ]
 
 if settings.DEBUG:

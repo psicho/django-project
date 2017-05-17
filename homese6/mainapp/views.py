@@ -13,7 +13,9 @@ def main(request):
     return render(request, "index.html")
 
 def catalog(request):
-    return render(request, "catalog.html")
+    jewels = Jewel.objects.all()
+    categories = Category.objects.all()
+    return render(request, "catalog.html", {'categories': categories, 'jewels': jewels})
 
 def product(request):
     return render(request, "product.html")
@@ -137,10 +139,10 @@ def get_user_form(request, user_id):
         return JsonResponse(data)
     raise Http404
 
-def jewel(request, category_id):
+def jeweler(request, category_id):
     jewels = Jewel.objects.filter(category__id=category_id)
     categories = Category.objects.all()
-    return render(request, 'catalog.html', {'categories': categories, 'jewels': jewels})
+    return render(request, 'jewel_page.html', {'categories': categories, 'jewels': jewels})
 
 def admin_jewels(request):
     jewels = Jewel.objects.all()

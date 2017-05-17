@@ -1,0 +1,20 @@
+{% extends "catalog.html" %}
+{% block tit %}
+   {{ jewel.category.name }}
+{% endblock %}
+{% block jewel %}
+    <div class="catalog_item">
+    {% for jewel in jewels %}
+        <div class="jewel_container">
+            <div class="name">
+                {{ jewel.name }}
+            </div>
+            <div class="image">
+                <img src="{{ jewel.image.url}}" >
+            </div>
+                <!--{{ jewel.category.name }}-->
+                <!--<img src="/static/bodyphoto8.jpg">-->
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

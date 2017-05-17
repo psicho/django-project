@@ -22,14 +22,6 @@ header {
     height: 600px;
 }
 
-footer {
-    height: 150px;
-    border: red 3px;
-    background: #000;
-    align-content: center;
-    margin-top: -5px;
-}
-
 .tel {
     display: block;
     width: 200px;
@@ -91,6 +83,55 @@ footer {
     display: block;
     background: #905b20;
     width: 400px;
+    margin: 20px;
+    margin-left: 30px;
+    color: #fff2d0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.catalog_menu {
+    align-content: none;
+    text-align: left;
+    display: inline-block;
+    background: #905b20;
+    margin: 20px;
+    margin-left: 30px;
+    color: #fff2d0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.catalog_menu li {
+    display: block;
+    float: left;
+    color: #fff2d0;
+    list-style-type: none;
+    padding: 5px;
+}
+
+.catalog_menu a {
+    text-align: left;
+    color: #fff2d0;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.catalog_item img {
+    height: 100px;
+    margin-top: 10px;
+}
+
+.catalog_item {
+    float: none;
+    display: block;
+    color: #fff2d0;
+}
+
+.jewel_container {
+    display: block;
+    float: left;
+    background: #905b20;
     margin: 20px;
     margin-left: 30px;
     color: #fff2d0;
@@ -197,4 +238,14 @@ footer {
 
 .error {
     color = red;
+}
+
+footer {
+    display: block:
+    float: none;
+    height: 150px;
+    border: red 3px;
+    background: #000;
+    align-content: center;
+    margin-top: -5px;
 }
